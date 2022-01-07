@@ -12,7 +12,7 @@ void testScanf(void){
     printf("\n you entered is :%s %d \n",str,i);
 }
 
-/* file opearate */
+/*** file opearate ***/
 void fileUse(void){
     FILE *fp=NULL;
     char buff[255];
