@@ -12,7 +12,7 @@ void testScanf(void){
     printf("\n you entered is :%s %d \n",str,i);
 }
 
-/*** file opearate ***/
+/*** file opearate */
 void fileUse(void){
     FILE *fp=NULL;
     char buff[255];
@@ -24,7 +24,7 @@ void fileUse(void){
 
     /* read file*/
     
-
+    fp=fopen("./tmp/1.txt","r");  
     fscanf(fp,"%s",buff);
     printf("fscan:%s\n",buff);
 
@@ -52,6 +52,7 @@ void testA_define(void){
 int main(){
 
     testA_define();
+   
     /*
     testScanf();
     fileUse();
