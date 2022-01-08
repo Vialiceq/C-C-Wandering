@@ -21,12 +21,12 @@ void complieTest(void){
 }
 
 //***********************************class object*************************//
-class student{
+// tips:   method   in Public while   characteristic  in Private
+class student 
+{
 
  public:
-     int age ;  //static
-     string name;
-
+  
     student();   //   reload func1
     student(int a, string b);   // reload func2
     
@@ -34,7 +34,24 @@ class student{
     static int cnt; //count func
     
     static int count();
+    void print_age_public();
+
+private: // protect:     //used for sub-class
+    void print_age_private();
+    int age ;  
+    string name;
+
+
 };
+
+void student::print_age_public(){
+    cout<<"public use private:";
+    print_age_private();
+};
+void student::print_age_private(){
+    cout<<"private"<<endl;
+};
+
 
 int student::cnt=0;
 //class function
@@ -51,6 +68,7 @@ student:: student(int a, string b){
     age=a;
     name=b;
     cnt++;
+    
 }
 
 bool student::read() const
@@ -71,12 +89,17 @@ void ClassT(){
     student aa;
     
     student bb(15,"nice");
-     cout<<bb.read()<<endl;
-    cout<<aa.name<<" N is noe "<<endl;
+    cout<<bb.read()<<endl;
+    cout<<aa.read()<<" N is noe "<<endl;
     
 
     // cout<<aa.count()<<endl; 
     cout<<"the times of 'class' used are:   "<<student::count();
+    
+    //public and private
+
+    aa.print_age_public();
+    //aa.print_age_private();
 
 
     /*
@@ -89,10 +112,38 @@ void ClassT(){
 }
 //***************************************end********************************//
 
+//sub-class regenerate
+class undergraduate: public student
+{
+
+public:
+        string courses;
+        undergraduate();
+        undergraduate(int a ,string b,string c);
+};
+
+undergraduate::undergraduate(){
+    
+    courses="Quantum";
+}
+
+undergraduate::undergraduate(int a ,string b,string c):student(a,b)
+{
+    
+    courses= c ;
+}
+
 
 int main(){
    
-    ClassT();
+    undergraduate mm;
+    mm.read();
+    cout<<mm.courses;
+    
+    //ClassT();
+    /*
+    
+    */
     return 0;
 }
 //
