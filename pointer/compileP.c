@@ -5,7 +5,6 @@ void swap(int *x, int *y)
    *x = *y;      // 把 y 赋值给 x 
    *y = temp;    // 把 temp 赋值给 y 
   
-   return;
 }
 
 void z(){
@@ -13,6 +12,8 @@ void z(){
     int b=2;
     swap(&a,&b);
 }
+
+
 
 
 /*
